@@ -49,3 +49,23 @@ it('deve cobrar o valor do frete caso o produto seja exatamente 500', () => {
 
     expect(resultado).toBe(600)
 })
+
+// casos os estados de entrega sejam SP ou GO deve-se acrescentar um valor de 30% na entrega.
+it('Deve adicionar um valor de 30% no valor do pedido caso o estado seja SP', () => {
+
+    const pedidoComEstadoSP = {
+        estado: 'SP', 
+        itens: [
+            {nome: 'Poção do amor', valor: 500},
+            {nome: 'Entrega', valor: 100, entrega: true}
+        ]
+    }
+    const resultado = calcularValorPedido(pedidoComEstadoSP)
+    // como eu passei pedidoComEstado e ele com estado lá no código funcionou
+
+    expect(resultado).toBe(620)
+})
+
+
+
+

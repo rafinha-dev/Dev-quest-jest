@@ -6,13 +6,13 @@ const calcularValorPedido = pedido => {
 
     const entrega = pedido.itens.filter(item => item.entrega)
 
+    if(pedido.estado === 'SP'){
+        const acrecimoEntrega = entrega[0].valor * 0.2
+        entrega[0].valor += acrecimoEntrega
+    }
 
     return (valorProdutos > 500) ? valorProdutos : valorProdutos + entrega[0].valor
-    // if(valorProdutos > 500){
-    //     return valorProdutos
-    // }else{
-    //     return valorProdutos + entrega[0].valor
-    // }
+
 }
 
 //console.log(calcularValorPedido(meuPedido)) // 1100
