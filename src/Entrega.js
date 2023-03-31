@@ -1,10 +1,3 @@
-const meuPedido = {
-    itens: [
-        {nome: 'Poção de vida', valor: 100},
-        {nome: 'Espada de prata', valor: 200}, 
-        {nome: 'Entrega', valor: 40, entrega: true}
-    ]
-}
 
 const calcularValorPedido = pedido => {
     const valorProdutos = pedido.itens
@@ -20,7 +13,7 @@ const calcularValorPedido = pedido => {
     }
 }
 
-console.log(calcularValorPedido(meuPedido)) // 1100
+//console.log(calcularValorPedido(meuPedido)) // 1100
 
 // Pense que nesse senário já começa a crescer a quantidade de situações em que esse código vai atuar 
 // Entra o valor de um pedido, a entrega, armazena a função e tira tudo que não é relativo a entrega e depois soma com o edido, testa o valor do pedido para saber a entrega e etc.
