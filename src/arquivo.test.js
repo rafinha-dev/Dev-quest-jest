@@ -18,4 +18,34 @@ it('Não deve cobrar valor de frete quando o valor for 500 ou mais', () => {
     expect(resultado).toBe(800)
     // nesse caso eu já sabia o valor do resultado do teste, se o valor fosse diferente ela iria falhar
 })
+// se eu deixar só esse fluxo de testes, toda vez que cair no else, o teste retornará falso, sendo que oq aconteceu é que eu não criei um teste para essa situação ainda
 
+it('Deve cobrar o valor do frete caso  o valor seja menor que 500', () => {
+    // arrange 
+    const meuPedido = {
+        itens: [
+            {nome: 'Poção do amor', valor: 300},
+            {nome: 'Entrega', valor: 100, entrega: true}
+        ]
+    }
+
+    // act
+    const resultado = calcularValorPedido(meuPedido)
+
+    // assert
+    expect(resultado).toBe(400)
+})
+
+// testando limites
+it('deve cobrar o valor do frete caso o produto seja exatamente 500', () => {
+    const meuPedido = {
+        itens: [
+            {nome: 'Poção do amor', valor: 500},
+            {nome: 'Entrega', valor: 100, entrega: true}
+        ]
+    }
+
+    const resultado = calcularValorPedido(meuPedido);
+
+    expect(resultado).toBe(600)
+})
