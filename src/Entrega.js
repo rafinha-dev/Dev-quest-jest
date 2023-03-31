@@ -1,3 +1,4 @@
+const acrescimoDaEntrega = 0.2
 
 const calcularValorPedido = pedido => {
     const valorProdutos = pedido.itens
@@ -6,8 +7,9 @@ const calcularValorPedido = pedido => {
 
     const entrega = pedido.itens.filter(item => item.entrega)
 
+    // somente essa condição me gerou 3 novos fluxos de teste garantindo a qualidade
     if(pedido.estado === 'SP' || pedido.estado === 'GO'){
-        const acrecimoEntrega = entrega[0].valor * 0.2
+        const acrecimoEntrega = entrega[0].valor * acrescimoDaEntrega
         entrega[0].valor += acrecimoEntrega
     }
 

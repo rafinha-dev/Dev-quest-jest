@@ -51,7 +51,7 @@ it('deve cobrar o valor do frete caso o produto seja exatamente 500', () => {
 })
 
 // casos os estados de entrega sejam SP ou GO deve-se acrescentar um valor de 30% na entrega.
-it('Deve adicionar um valor de 30% no valor do pedido caso o estado seja SP', () => {
+it('Deve adicionar um valor de 20% no valor do pedido caso o estado seja SP', () => {
 
     const pedidoComEstadoSP = {
         estado: 'SP', 
@@ -68,7 +68,7 @@ it('Deve adicionar um valor de 30% no valor do pedido caso o estado seja SP', ()
 
 
 // casos os estados de entrega sejam SP ou GO deve-se acrescentar um valor de 30% na entrega.
-it('Deve adicionar um valor de 30% no valor do pedido caso o estado seja GO', () => {
+it('Deve adicionar um valor de 20% no valor do pedido caso o estado seja GO', () => {
 
     const pedidoComEstadoGO = {
         estado: 'GO', 
@@ -81,5 +81,20 @@ it('Deve adicionar um valor de 30% no valor do pedido caso o estado seja GO', ()
     // como eu passei pedidoComEstado e ele com estado lá no código funcionou
 
     expect(resultado).toBe(620)
+})
+
+it('Nao deve adicionar um valor de 20% no valor do pedido caso o estado seja MG', () => {
+
+    const pedidoComEstadoMG = {
+        estado: 'MG', 
+        itens: [
+            {nome: 'Poção do amor', valor: 500},
+            {nome: 'Entrega', valor: 100, entrega: true}
+        ]
+    }
+    const resultado = calcularValorPedido(pedidoComEstadoMG)
+    // como eu passei pedidoComEstado e ele com estado lá no código funcionou
+
+    expect(resultado).toBe(600)
 })
 
