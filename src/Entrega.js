@@ -6,7 +6,7 @@ const calcularValorPedido = pedido => {
 
     const entrega = pedido.itens.filter(item => item.entrega)
 
-    if(pedido.estado === 'SP'){
+    if(pedido.estado === 'SP' || pedido.estado === 'GO'){
         const acrecimoEntrega = entrega[0].valor * 0.2
         entrega[0].valor += acrecimoEntrega
     }
